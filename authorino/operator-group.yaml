@@ -1,5 +1,9 @@
-apiVersion: operators.coreos.com/v1
 kind: OperatorGroup
+apiVersion: operators.coreos.com/v1
 metadata:
-  name: rhods-operator-group
-  namespace: redhat-ods-operator
+  name: authorino-operator-group
+  namespace: openshift-operators
+spec:
+  targetNamespaces:
+    - openshift-operators
+
