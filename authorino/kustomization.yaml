@@ -7,5 +7,4 @@ commonLabels:
   component: authorino
 
 resources:
-# - operator-group.yaml
 - subscription.yaml
