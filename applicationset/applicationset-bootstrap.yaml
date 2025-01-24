@@ -11,22 +11,22 @@ spec:
         name: minio
         repoURL: https://github.com/dialvare/bootstrap-ai-edge-lifecycle.git
         targetRevision: main
-        path: bootstrap/minio
+        path: minio
       - cluster: in-cluster
         name: authorino
         repoURL: https://github.com/dialvare/bootstrap-ai-edge-lifecycle.git
         targetRevision: main
-        path: bootstrap/authorino
+        path: authorino
       - cluster: in-cluster
         name: serverless
         repoURL: https://github.com/dialvare/bootstrap-ai-edge-lifecycle.git
         targetRevision: main
-        path: bootstrap/serverless
+        path: serverless
       - cluster: in-cluster
         name: servicemesh
         repoURL: https://github.com/dialvare/bootstrap-ai-edge-lifecycle.git
         targetRevision: main
-        path: bootstrap/servicemesh
+        path: servicemesh
   template:
     metadata:
       name: "{{name}}"
