@@ -17,24 +17,41 @@ spec:
         repoURL: https://github.com/dialvare/bootstrap-ai-edge-lifecycle.git
         targetRevision: main
         path: bootstrap/authorino
+      - cluster: in-cluster
+        name: serverless
+        repoURL: https://github.com/dialvare/bootstrap-ai-edge-lifecycle.git
+        targetRevision: main
+        path: bootstrap/serverless
+      - cluster: in-cluster
+        name: servicemesh
+        repoURL: https://github.com/dialvare/bootstrap-ai-edge-lifecycle.git
+        targetRevision: main
+        path: bootstrap/servicemesh
   template:
     metadata:
-      name: '{{name}}'
+      name: "{{name}}"
       namespace: openshift-gitops
       labels:
         component: bootstrap
-        purpose: '{{name}}'
+        purpose: "{{name}}"
     spec:
       project: default
       source:
-        repoURL: '{{repoURL}}'
-        targetRevision: '{{targetRevision}}'
-        path: '{{path}}'
+        repoURL: "{{repoURL}}"
+        targetRevision: "{{targetRevision}}"
+        path: "{{path}}"
       destination:
-        server: 'https://kubernetes.default.svc'
+        server: "https://kubernetes.default.svc"
       syncPolicy:
         automated:
           prune: true
           selfHeal: true
         syncOptions:
           - RespectIgnoreDifferences=true
+          - Retry=true
+        retry:
+          limit: 50
+          backoff:
+            duration: 15s
+            factor: 2
+            maxDuration: 5m
