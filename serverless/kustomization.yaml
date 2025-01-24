@@ -1,15 +1,9 @@
 kind: Kustomization
 apiVersion: kustomize.config.k8s.io/v1beta1
 
-namespace: minio
-
 commonLabels:
-  component: minio
+  component: serverless
 
 resources:
 - namespace.yaml
-- pvc.yaml
-- secret.yaml
-- deployment.yaml
-- service.yaml
-- route.yaml
+- subscription.yaml
